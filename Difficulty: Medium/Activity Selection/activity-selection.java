@@ -51,7 +51,7 @@ class Solution {
         }
 
         // Sort activities based on end time using comparator
-        Arrays.sort(indices, (i, j) -> end.get(i) - end.get(j));
+        Arrays.sort(indices, (i, j) -> Integer.compare(end.get(i), end.get(j)));
 
         // Initialize count of selected activities
         int maxAct = 1;
