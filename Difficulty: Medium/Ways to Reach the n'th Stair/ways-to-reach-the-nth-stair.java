@@ -42,27 +42,64 @@
 // }
 
 
+
 // Tabulation
+
+// class Solution {
+//     int countWays(int n) {
+//         // your code here
+//         if(n==1){
+//             return 1;
+//         }
+        
+//         int [] dp = new int[n+1];
+        
+//         dp[0] =1;
+        
+//         dp[1] = 1;
+        
+        
+//       for(int i=2; i<=n; i++){
+//           dp[i] = dp[i-1]+dp[i-2]; 
+//       }
+       
+//       return dp[n];
+//     }
+// }
+
+// class Solution {
+//     int countWays(int n) {
+//         // your code here
+//     if( n==0 ||n==1 ){
+//         return n;
+//     }
+    
+//     return countWays(n-1)+ countWays(n-2);
+//     }
+// }
+
 
 class Solution {
     int countWays(int n) {
-        // your code here
-        if(n==1){
-            return 1;
-        }
+        // your code 
         
-        int [] dp = new int[n+1];
+        int[] dp = new int[n+1];
         
-        dp[0] =1;
+        Arrays.fill(dp,-1);
         
-        dp[1] = 1;
-        
-        
-       for(int i=2; i<=n; i++){
-           dp[i] = dp[i-1]+dp[i-2]; 
-       }
-       
-       return dp[n];
+       return help(dp, n);
+    }
+    
+    int help(int [] dp, int n){
+         
+         if( n==0 ||n==1 ){
+        return 1;
+         }
+         if(dp[n] != -1){
+             return dp[n];
+         }
+    
+    return dp[n] = help(dp, n-1)+ help(dp, n-2);
     }
 }
 
