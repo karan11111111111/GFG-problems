@@ -12,19 +12,24 @@ class Node
 }
  */
 
+// class Solution {
+//     // Function to find the height of a binary tree.
+//     int height(Node node) {
+//         // code here
+//         if(node ==null)    return -1;
+//         return Math.max(height(node.left),height(node.right)) +1;
+//     }
+// }
+
+
+
+
+
 class Solution {
     // Function to find the height of a binary tree.
     int height(Node node) {
         // code here
-        if(node ==null){
-            return -1;
-        }
-        
-        int lh = height(node.left);
-        int rh = height(node.right);
-        
-        int ht = 1 + Math.max(lh, rh);
-        
-        return ht;
+        if(node ==null)    return -1;
+       return Math.max(height(node.left), height(node.right))+1;
     }
 }
